@@ -1,0 +1,32 @@
+<section id="home" class="home-section">
+  <div class="container home-grid">
+    <div class="home-text">
+      <p class="greeting">Hi, I'm</p>
+      <h1>
+        <span class="name-highlight">{{ profile.name }}</span>
+      </h1>
+      <div class="animated-title" aria-live="polite">
+        <span class="title-item" *ngFor="let title of profile.titles">{{
+          title
+        }}</span>
+      </div>
+      <p class="bio">{{ profile.bio }}</p>
+      <div class="social-buttons">
+        <a
+          *ngFor="let link of profile.socialLinks"
+          [href]="link.url"
+          class="social-btn"
+          [class]="'social-btn--' + (link.variant || 'default')"
+          [attr.target]="link.variant === 'cv' || link.variant === 'email' ? null : '_blank'"
+          [attr.rel]="link.variant === 'cv' || link.variant === 'email' ? null : 'noopener noreferrer'"
+        >
+          <i [class]="link.icon"></i>
+          {{ link.label }}
+        </a>
+      </div>
+    </div>
+    <div class="home-image">
+      <img [src]="profile.image" [alt]="profile.name" width="400" height="400" />
+    </div>
+  </div>
+</section>

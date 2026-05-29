@@ -1,0 +1,22 @@
+<section id="skills" class="section skills-section">
+  <div class="container">
+    <app-section-heading title="Skills & Technologies"></app-section-heading>
+    <div class="skills-categories">
+      <div class="category" *ngFor="let cat of categories">
+        <h3>{{ cat.name }}</h3>
+        <div class="tech-grid">
+          <div class="tech-card" *ngFor="let skill of cat.skills">
+            <img
+              *ngIf="isCustomMysql(skill)"
+              src="assets/images/mysql.svg"
+              alt="MySQL"
+              class="mysql-icon"
+            />
+            <i *ngIf="!isCustomMysql(skill)" [class]="iconClass(skill)"></i>
+            <p>{{ skill.name }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

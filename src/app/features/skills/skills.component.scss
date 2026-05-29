@@ -1,0 +1,55 @@
+.skills-section {
+  background: var(--bg-secondary);
+}
+
+.skills-categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+}
+
+.category h3 {
+  font-size: 1rem;
+  color: var(--accent);
+  margin-bottom: 1rem;
+  font-family: var(--font-mono);
+}
+
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+  gap: 1rem;
+}
+
+.tech-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 0.5rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  transition: border-color 0.2s, transform 0.2s;
+
+  i {
+    font-size: 2rem;
+    color: var(--text-primary);
+  }
+
+  .mysql-icon {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  p {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    text-align: center;
+  }
+
+  &:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+}

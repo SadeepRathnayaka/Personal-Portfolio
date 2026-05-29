@@ -1,0 +1,54 @@
+<article class="project-row">
+  <div
+    class="project-media"
+    [style.background-image]="'url(' + imageUrl(project.image) + ')'"
+    role="img"
+    [attr.aria-label]="project.title + ' preview'"
+  ></div>
+
+  <div class="project-body">
+    <div class="project-meta">
+      <span class="category-pill">{{ categoryLabel }}</span>
+      <span class="current-badge" *ngIf="isCurrent">Current Work</span>
+    </div>
+
+    <h3 class="project-title">{{ project.title }}</h3>
+    <p class="project-excerpt">{{ project.summary }}</p>
+
+    <div class="tech-tags">
+      <span class="tech-tag" *ngFor="let t of visibleTech">{{ t }}</span>
+      <span class="tech-tag tech-more" *ngIf="hiddenTechCount > 0"
+        >+{{ hiddenTechCount }}</span
+      >
+    </div>
+
+    <div class="project-actions">
+      <ng-container *ngIf="hasLinks; else inProgress">
+        <ng-container *ngFor="let link of project.links">
+          <a
+            *ngIf="link.type !== 'details'"
+            [href]="link.url"
+            class="action-btn"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="bx bxl-github" *ngIf="link.type === 'github'"></i>
+            <i class="bx bx-link-external" *ngIf="link.type === 'demo'"></i>
+            <i class="bx bxl-linkedin" *ngIf="link.type === 'linkedin'"></i>
+            {{ link.label }}
+          </a>
+          <a
+            *ngIf="link.type === 'details'"
+            [routerLink]="link.url"
+            class="action-btn action-btn--secondary"
+          >
+            <i class="bx bx-info-circle"></i> {{ link.label }}
+          </a>
+        </ng-container>
+      </ng-container>
+      <ng-template #inProgress>
+        <span class="status-text">In progress — links coming soon</span>
+      </ng-template>
+    </div>
+  </div>
+</article>

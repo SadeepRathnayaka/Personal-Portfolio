@@ -1,0 +1,32 @@
+<section id="timeline" class="section timeline-section">
+  <div class="container">
+    <app-section-heading title="My Journey"></app-section-heading>
+    <div class="timeline">
+      <div class="timeline-item" *ngFor="let event of events">
+        <div class="timeline-date">{{ event.date }}</div>
+        <div class="timeline-content">
+          <h3 class="timeline-title">{{ event.title }}</h3>
+          <p class="timeline-subtitle" *ngIf="event.subtitle" [innerHTML]="event.subtitle"></p>
+          <p class="timeline-description" *ngIf="event.description">
+            {{ event.description }}
+          </p>
+          <div class="timeline-highlights" *ngIf="event.highlights?.length">
+            <div class="highlight-item" *ngFor="let h of event.highlights">
+              <i [class]="h.icon"></i>
+              <span [innerHTML]="h.text"></span>
+            </div>
+          </div>
+          <a
+            *ngIf="event.link"
+            [href]="event.link.url"
+            class="timeline-link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="bx bx-link-external"></i> {{ event.link.label }}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,32 @@
+<header class="site-header" [class.menu-open]="menuOpen">
+  <div class="container header-inner">
+    <a routerLink="/" class="logo" (click)="closeMenu()">{{ profile.name }}</a>
+
+    <button
+      type="button"
+      class="hamburger"
+      (click)="toggleMenu()"
+      [attr.aria-expanded]="menuOpen"
+      aria-label="Toggle navigation menu"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="nav" [class.active]="menuOpen">
+      <ul class="nav-links">
+        <li *ngFor="let item of navItems">
+          <a
+            routerLink="/"
+            [fragment]="item.fragment"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            (click)="closeMenu()"
+            >{{ item.label }}</a
+          >
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>

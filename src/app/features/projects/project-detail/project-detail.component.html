@@ -1,0 +1,72 @@
+<section class="project-detail-page" *ngIf="project; else notFound">
+  <div
+    class="hero-banner"
+    [style.background-image]="'url(' + imageUrl(project.image) + ')'"
+  ></div>
+  <div class="container detail-content">
+    <a routerLink="/" fragment="projects" class="back-link">
+      <i class="bx bx-arrow-back"></i> Back to Projects
+    </a>
+    <header class="detail-header">
+      <h1>{{ project.title }}</h1>
+      <div class="tech-tags">
+        <span *ngFor="let t of project.tech" class="tech-tag">{{ t }}</span>
+      </div>
+    </header>
+
+    <p class="detail-summary">{{ project.summary }}</p>
+
+    <div class="detail-sections" *ngIf="project.detailSections?.length">
+      <div class="detail-section" *ngFor="let section of project.detailSections">
+        <h2>{{ section.title }}</h2>
+        <p *ngIf="section.content">{{ section.content }}</p>
+        <ul *ngIf="section.bullets?.length">
+          <li *ngFor="let b of section.bullets">{{ b }}</li>
+        </ul>
+        <div class="cards-grid" *ngIf="section.cards?.length">
+          <div class="info-card" *ngFor="let card of section.cards">
+            <h3>{{ card.title }}</h3>
+            <ul>
+              <li *ngFor="let item of card.items">{{ item }}</li>
+            </ul>
+          </div>
+        </div>
+        <div class="video-block" *ngIf="section.videoUrl">
+          <div class="video-wrapper">
+            <iframe
+              [src]="safeVideoUrl(section)"
+              title="Project demonstration"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <p class="video-caption" *ngIf="section.videoCaption">
+            {{ section.videoCaption }}
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="detail-actions">
+      <ng-container *ngFor="let link of project.links">
+        <a
+          *ngIf="link.type !== 'details'"
+          [href]="link.url"
+          class="action-btn"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {{ link.label }}
+        </a>
+      </ng-container>
+    </div>
+  </div>
+</section>
+
+<ng-template #notFound>
+  <div class="container not-found">
+    <h1>Project not found</h1>
+    <a routerLink="/" fragment="projects" class="back-link">Back to Projects</a>
+  </div>
+</ng-template>
