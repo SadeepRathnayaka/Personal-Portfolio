@@ -13,7 +13,9 @@ Open [http://localhost:4200](http://localhost:4200).
 
 ## Production build (GitHub Pages)
 
-Live site: **https://sadeeprathnayaka.github.io/personal-portfolio/**
+Live site: **https://sadeeprathnayaka.github.io/Personal-Portfolio/**
+
+The `baseHref` in `angular.json` must match the **exact GitHub repository name** (case-sensitive in the URL).
 
 ```bash
 npm run build:gh-pages
@@ -21,6 +23,16 @@ npm run build:gh-pages
 
 ## Deploy
 
-1. Push to `main` on [SadeepRathnayaka/personal-portfolio](https://github.com/SadeepRathnayaka/personal-portfolio).
-2. Repo **Settings** → **Pages** → **Source**: **GitHub Actions**.
-3. The workflow `.github/workflows/deploy.yml` builds and publishes automatically.
+You do **not** need `ng add angular-cli-ghpages` — this repo already deploys via `.github/workflows/deploy.yml`.
+
+1. Push to `main` on GitHub.
+2. **Settings** → **Pages** → **Source**: **GitHub Actions**.
+3. Wait for the **Deploy to GitHub Pages** workflow to finish (green check).
+
+## Troubleshooting
+
+| Problem | Fix |
+|--------|-----|
+| GitHub says “live” but blank / 404 | Open the URL from **Settings → Pages** (not a guessed URL). |
+| Page loads but no styles / blank app | `baseHref` must match repo name exactly, e.g. `/Personal-Portfolio/`. |
+| Old site still shows | Hard refresh (Ctrl+F5) or try incognito. |
