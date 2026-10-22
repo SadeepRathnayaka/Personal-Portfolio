@@ -11,6 +11,7 @@ export interface Profile {
   name: string;
   titles: string[];
   bio: string;
+  researchInterests?: string[];
   image: string;
   cvUrl: string;
   socialLinks: SocialLink[];
@@ -68,6 +69,15 @@ export interface SkillCategory {
   skills: SkillItem[];
 }
 
+export interface Achievement {
+  title: string;
+  event: string;
+  year: string;
+  description: string;
+  icon: string;
+  link?: { url: string; label: string };
+}
+
 export interface ContactInfo {
   email: string;
   whatsapp: { display: string; url: string };
@@ -84,6 +94,7 @@ export interface PortfolioData {
   timeline: TimelineEvent[];
   projects: Project[];
   skillCategories: SkillCategory[];
+  achievements: Achievement[];
   contact: ContactInfo;
   footerSocial: SocialLink[];
   copyrightYear: number;

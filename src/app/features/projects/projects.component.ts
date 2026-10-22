@@ -7,7 +7,7 @@ import { Project, ProjectCategory } from '../../data/portfolio.models';
 
 type FilterCategory = 'all' | ProjectCategory;
 
-const PINNED_SLUG = 'distributed-banking-platform';
+const PINNED_SLUG = 'mobile-robot-receptionist';
 
 @Component({
   selector: 'app-projects',
@@ -19,9 +19,9 @@ const PINNED_SLUG = 'distributed-banking-platform';
 export class ProjectsComponent {
   readonly categories: { id: FilterCategory; label: string }[] = [
     { id: 'all', label: 'All' },
-    { id: 'software', label: 'Software Development' },
     { id: 'robotics', label: 'Robotics' },
     { id: 'ml', label: 'Machine Learning' },
+    { id: 'software', label: 'Software Development' },
   ];
 
   activeCategory: FilterCategory = 'all';

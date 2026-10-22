@@ -103,6 +103,35 @@ h1 {
   margin-bottom: 2rem;
 }
 
+.interests {
+  margin: -0.75rem 0 2rem;
+  max-width: 540px;
+}
+
+.interests-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 0.6rem;
+}
+
+.interest-tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.interest-tag {
+  font-size: 0.82rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  color: var(--accent);
+  background: var(--accent-dim);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+}
+
 .social-buttons {
   display: flex;
   flex-wrap: wrap;
@@ -166,9 +195,14 @@ h1 {
     text-align: center;
   }
 
-  .bio {
+  .bio,
+  .interests {
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .interest-tags {
+    justify-content: center;
   }
 
   .social-buttons {

@@ -1,0 +1,25 @@
+<section id="achievements" class="section achievements-section">
+  <div class="container">
+    <app-section-heading title="Achievements"></app-section-heading>
+    <div class="achievements-grid">
+      <article class="achievement-card" *ngFor="let a of achievements">
+        <div class="achievement-icon"><i [class]="a.icon"></i></div>
+        <div class="achievement-body">
+          <span class="achievement-year">{{ a.year }}</span>
+          <h3 class="achievement-title">{{ a.title }}</h3>
+          <p class="achievement-event">{{ a.event }}</p>
+          <p class="achievement-desc">{{ a.description }}</p>
+          <a
+            *ngIf="a.link"
+            [href]="a.link.url"
+            class="achievement-link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="bx bx-link-external"></i> {{ a.link.label }}
+          </a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>

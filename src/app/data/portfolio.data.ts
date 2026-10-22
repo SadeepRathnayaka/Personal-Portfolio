@@ -4,12 +4,18 @@ export const PORTFOLIO: PortfolioData = {
   profile: {
     name: 'Sadeep Rathnayaka',
     titles: [
-      'Full Stack Software Engineer',
-      'Passionate Backend Developer',
-      'Continuous Learner',
+      'Robotics Engineer',
+      'ROS 2 & Motion Planning Developer',
+      'Software Engineer',
     ],
     bio:
-      'A First-Class Honours engineering graduate from the University of Moratuwa, Sri Lanka, and a Full-Stack Engineer with a strong passion for backend systems and database engineering. Combines outstanding academic performance (4x Dean’s List, top 0.8% nationally) with specialized international research in robotics and enterprise-level backend software engineering experience. A proactive, rapid learner dedicated to building clean, maintainable codebases, and solving high-impact technical problems.',
+      'Robotics engineer and software developer with First-Class Honours in Electronic and Telecommunication Engineering from the University of Moratuwa, Sri Lanka. I build robots end to end, from SolidWorks design and Gazebo simulation to ROS 2 control, motion planning and navigation on real hardware, including manipulator work on a UR10e during my research internship at SUTD. Industry experience as a software engineer gives me a strong foundation in writing clean, maintainable code.',
+    researchInterests: [
+      'Autonomous Navigation',
+      'Manipulation & Motion Planning',
+      'Service & Healthcare Robotics',
+      'Human-Robot Interaction',
+    ],
     image: 'assets/images/Profile Image HD.png',
     cvUrl: 'assets/cv/Sadeep_Rathnayaka_CV.pdf',
     socialLinks: [
@@ -41,8 +47,9 @@ export const PORTFOLIO: PortfolioData = {
   },
   navItems: [
     { label: 'Home', fragment: 'home' },
-    { label: 'Timeline', fragment: 'timeline' },
     { label: 'Projects', fragment: 'projects' },
+    { label: 'Journey', fragment: 'timeline' },
+    { label: 'Achievements', fragment: 'achievements' },
     { label: 'Skills', fragment: 'skills' },
     { label: 'Contact', fragment: 'contact' },
   ],
@@ -107,16 +114,16 @@ export const PORTFOLIO: PortfolioData = {
           text: 'Graduated with <strong>First-Class Honours</strong> (GPA: <strong>3.84/4.00</strong>) and <strong>4× Dean’s List</strong> distinctions (Semesters 1, 4, 6, 8).',
         },
         {
-          icon: 'bx bx-chip',
-          text: 'Completed studies in Electronics and Telecommunication Engineering, specializing in <strong>Software Development</strong> and <strong>Robotics</strong>.',
+          icon: 'bx bx-bot',
+          text: 'Final-year project: <strong>Mobile Robot Receptionist</strong>, a semi-humanoid service robot. I built its 4-DoF arm for autonomous elevator-button interaction.',
         },
         {
           icon: 'bx bx-book-open',
-          text: 'Mastered <strong>OOP</strong>, <strong>Data Structures & Algorithms (DSA)</strong>, backend development, and <strong>Relational Databases</strong>.',
+          text: 'Robotics coursework: <strong>Robotics</strong> (kinematics, DH parameters), <strong>Autonomous Systems</strong> (Kalman filters, EKF, SLAM), <strong>Machine Vision</strong>, and <strong>Deep Learning for Vision</strong>.',
         },
         {
-          icon: 'bx bx-brain',
-          text: 'Strong analytical problem-solving and professional English communication within agile, multi-disciplinary teams.',
+          icon: 'bx bx-code-block',
+          text: 'Software foundations: <strong>OOP</strong>, <strong>Data Structures & Algorithms</strong>, and <strong>Relational Databases</strong>.',
         },
       ],
     },
@@ -127,19 +134,19 @@ export const PORTFOLIO: PortfolioData = {
       highlights: [
         {
           icon: 'bx bx-cog',
-          text: 'Robotic control development: designed and implemented a robotic control system for an autonomous hospital cleaning robot.',
+          text: 'Contributed to an <strong>autonomous hospital-cleaning robot</strong> project, focusing on manipulator control for cleaning high-touch surfaces.',
+        },
+        {
+          icon: 'bx bx-cube-alt',
+          text: 'Developed a <strong>Gazebo</strong> simulation to evaluate planned robotic-arm motions against the arm’s joint constraints.',
         },
         {
           icon: 'bx bx-network-chart',
-          text: 'Framework implementation: used <strong>ROS</strong> to integrate hardware, manage sensor data, and handle real-time controls.',
+          text: 'Integrated <strong>ROS 2</strong> and <strong>MoveIt</strong> with the simulation for manipulator control, motion planning, and trajectory execution.',
         },
         {
-          icon: 'bx bx-math',
-          text: 'Algorithmic problem-solving: formulated and tested motion control algorithms for safe navigation in complex environments.',
-        },
-        {
-          icon: 'bx bx-group',
-          text: 'Research collaboration: worked with international researchers bridging theory and real-world automation.',
+          icon: 'bx bx-check-shield',
+          text: 'Tested and validated planned motions on a <strong>Universal Robots UR10e</strong> industrial manipulator.',
         },
       ],
       link: {
@@ -169,6 +176,209 @@ export const PORTFOLIO: PortfolioData = {
     },
   ],
   projects: [
+    {
+      slug: 'mobile-robot-receptionist',
+      category: 'robotics',
+      title: 'Mobile Robot Receptionist (Final-Year Project)',
+      summary:
+        'Semi-humanoid service robot that moves between floors on its own. I designed and built its 4-DoF arm for elevator-button interaction: camera-based button detection, 3D button localization, MoveIt motion planning, Gazebo simulation, and integration with the physical robot.',
+      image: 'assets/images/Mobile Robot Receptionist.svg',
+      tech: ['ROS 2', 'MoveIt 2', 'Gazebo', 'C++', 'Python', 'SolidWorks', 'Computer Vision'],
+      links: [
+        {
+          label: 'View Code',
+          url: 'https://github.com/SadeepRathnayaka/Mobile_Robot_Receptionist',
+          type: 'github',
+        },
+        {
+          label: 'More Info',
+          url: '/projects/mobile-robot-receptionist',
+          type: 'details',
+        },
+      ],
+      detailSections: [
+        {
+          title: 'Project Overview',
+          content:
+            'A semi-humanoid mobile receptionist robot, built as a team final-year project at the University of Moratuwa. My part was robot-elevator interaction: giving the robot an arm that can find and press elevator buttons by itself, so it can move between floors without help.',
+        },
+        {
+          title: 'My Contribution: Robot-Elevator Interaction',
+          cards: [
+            {
+              title: 'Arm Design',
+              items: [
+                'Compact 4-DoF robotic arm designed in SolidWorks',
+                'Sized for precise motion near elevator panels',
+                'Mounted on the mobile base',
+              ],
+            },
+            {
+              title: 'Perception',
+              items: [
+                'Camera-based elevator-button detection using a machine learning model',
+                'Button localization node estimating the 3D pose of the target button',
+              ],
+            },
+            {
+              title: 'Planning & Control',
+              items: [
+                'ROS 2 nodes and drivers for arm control and monitoring',
+                'MoveIt configured for inverse kinematics and collision-free motion planning',
+                'Trajectories tested in RViz before running on hardware',
+              ],
+            },
+          ],
+        },
+        {
+          title: 'Workflow',
+          bullets: [
+            'Designed the 4-DoF arm in SolidWorks.',
+            'Integrated the arm with ROS 2 and configured MoveIt for planning and execution.',
+            'Validated detection, localization and arm control together in a Gazebo simulation.',
+            'Assembled the arm on the robot and tested button pressing on the physical hardware.',
+          ],
+        },
+      ],
+    },
+    {
+      slug: 'hospital-cleaning-robot',
+      category: 'robotics',
+      title: 'Hospital Cleaning Robot (SUTD Research Internship)',
+      summary:
+        'Manipulator control for an autonomous hospital-cleaning robot that cleans high-touch surfaces. Built a Gazebo simulation to check planned arm motions against joint constraints, integrated ROS 2 and MoveIt for planning and trajectory execution, and validated the motions on a UR10e.',
+      image: 'assets/images/UR Arm.png',
+      tech: ['ROS 2', 'MoveIt', 'Gazebo', 'UR10e', 'C++', 'Python'],
+      links: [
+        {
+          label: 'LinkedIn',
+          url: 'https://www.linkedin.com/posts/sadeep-rathnayaka_internship-robotics-simulation-activity-7220534427246813184-I9_3',
+          type: 'linkedin',
+        },
+        {
+          label: 'More Info',
+          url: '/projects/hospital-cleaning-robot',
+          type: 'details',
+        },
+      ],
+      detailSections: [
+        {
+          title: 'Project Overview',
+          content:
+            'During my six-month research internship at the Singapore University of Technology and Design (SUTD), supervised by Prof. Tan U-Xuan, I contributed to an autonomous hospital-cleaning robot. My work focused on controlling its manipulator to clean high-touch surfaces.',
+        },
+        {
+          title: 'What I Worked On',
+          bullets: [
+            'Developed a Gazebo simulation to evaluate planned robotic-arm motions against the arm’s joint constraints.',
+            'Integrated ROS 2 and the MoveIt framework with the simulation for manipulator control, motion planning, and trajectory execution.',
+            'Tested and validated the planned motions on a Universal Robots UR10e industrial manipulator.',
+          ],
+        },
+      ],
+    },
+    {
+      slug: 'turbobot',
+      category: 'robotics',
+      title: 'Turbobot: Autonomous Mobile Robot',
+      summary:
+        'Four-wheel differential-drive robot designed in SolidWorks and built from scratch. Autonomous navigation with ROS 2 and Nav2, tested in Gazebo, then a physical build with a Raspberry Pi, wheel encoders and an IMU for sensor fusion and state estimation.',
+      image: 'assets/images/Turbobot.png',
+      tech: ['ROS 2', 'Nav2', 'Gazebo', 'C++', 'Python', 'SolidWorks', 'Raspberry Pi'],
+      links: [
+        {
+          label: 'View Code',
+          url: 'https://github.com/SadeepRathnayaka/Turbobot-Autonomous-Robot',
+          type: 'github',
+        },
+        { label: 'More Info', url: '/projects/turbobot', type: 'details' },
+      ],
+      detailSections: [
+        {
+          title: 'Project Overview',
+          content:
+            'Four-wheel differential drive robot built from scratch with custom 3D modeling, ROS 2 integration, and EKF-based localization — from mechanical design to autonomous navigation.',
+        },
+        {
+          title: 'Demonstration',
+          videoUrl: 'https://www.youtube.com/embed/c9c6hL1LTTQ',
+          videoCaption:
+            'Turbobot in action: autonomous navigation and control',
+        },
+        {
+          title: 'Key Features',
+          cards: [
+            {
+              title: '3D Model Design',
+              items: [
+                'SolidWorks chassis optimized for differential drive',
+                'Compact, durable mechanical layout',
+              ],
+            },
+            {
+              title: 'ROS 2 & Nav2',
+              items: [
+                'Motion control and localization nodes',
+                'Gazebo simulation and RViz visualization',
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      slug: 'flexobot',
+      category: 'robotics',
+      title: 'Flexobot: 6-DOF Robotic Arm',
+      summary:
+        '6-DOF robotic arm with ROS 2, MoveIt 2, SolidWorks modeling, URDF, RViz visualization, and joystick teleoperation.',
+      image: 'assets/images/Flexobot.png',
+      tech: ['C++', 'Python', 'ROS 2', 'MoveIt 2', 'SolidWorks'],
+      links: [
+        {
+          label: 'View Code',
+          url: 'https://github.com/SadeepRathnayaka/Flexobot-Robotic-Arm',
+          type: 'github',
+        },
+        { label: 'More Info', url: '/projects/flexobot', type: 'details' },
+      ],
+      detailSections: [
+        {
+          title: 'Project Overview',
+          content:
+            '6-DOF robotic arm with custom 3D modeling, ROS 2 and MoveIt 2 integration, joystick control, URDF modeling, and real-time manipulation planning.',
+        },
+        {
+          title: 'Demonstration',
+          videoUrl: 'https://www.youtube.com/embed/yZKS2mFUIUg',
+          videoCaption: 'Flexobot: robotic arm capabilities demo',
+        },
+        {
+          title: 'Key Features',
+          bullets: [
+            'SolidWorks design with six rotational joints',
+            'ROS 2 URDF, RViz, and joint trajectory control',
+            'MoveIt 2 motion planning and manipulation',
+          ],
+        },
+      ],
+    },
+    {
+      slug: 'parasitic-egg-detection',
+      category: 'ml',
+      title: 'Parasitic Egg Detection',
+      summary:
+        'AI system for detecting and classifying parasitic eggs using RTM-Det-tiny with image slicing and patch recombination for accuracy.',
+      image: 'assets/images/Egg Detection Ml.png',
+      tech: ['Python', 'Computer Vision', 'Deep Learning'],
+      links: [
+        {
+          label: 'View Code',
+          url: 'https://github.com/SadeepRathnayaka/Parasitic-Egg-Detection-and-Classification',
+          type: 'github',
+        },
+      ],
+    },
     {
       slug: 'distributed-banking-platform',
       category: 'software',
@@ -347,22 +557,27 @@ export const PORTFOLIO: PortfolioData = {
       ],
     },
     {
-      slug: 'inventory-microservices',
+      slug: 'inventory-manager',
       category: 'software',
-      title: 'Inventory Manager (Microservices)',
+      title: 'Inventory Manager (Monolithic → Microservices)',
       summary:
-        'Spring Boot microservices for inventory management with JWT auth, Eureka discovery, API Gateway routing, and paginated search across normalized MySQL schemas.',
+        'Inventory management backend built twice: first as a monolithic Spring Boot app with a relational MySQL design, then re-architected as microservices with JWT auth, Eureka discovery, API Gateway routing, and paginated search.',
       image: 'assets/images/Inventory Management_Resize.jpg',
-      tech: ['Java', 'Spring Boot', 'MySQL', 'JWT'],
+      tech: ['Java', 'Spring Boot', 'MySQL', 'JWT', 'Microservices'],
       links: [
         {
-          label: 'View Code',
+          label: 'Microservices Code',
           url: 'https://github.com/SadeepRathnayaka/Inventory-Manager-II-BackEnd',
           type: 'github',
         },
         {
+          label: 'Monolithic Code',
+          url: 'https://github.com/SadeepRathnayaka/Inventory-Manager-BackEnd',
+          type: 'github',
+        },
+        {
           label: 'More Info',
-          url: '/projects/inventory-microservices',
+          url: '/projects/inventory-manager',
           type: 'details',
         },
       ],
@@ -370,10 +585,10 @@ export const PORTFOLIO: PortfolioData = {
         {
           title: 'Project Overview',
           content:
-            'Inventory management system using Spring Boot microservices with JWT authentication. Independent services communicate through an API Gateway with centralized security and Eureka-based discovery.',
+            'The same inventory domain implemented in two architectures. The monolithic version uses interconnected MySQL tables with optimized custom queries and paginated search. The microservices version splits the system into independent services behind an API Gateway with centralized JWT security and Eureka-based discovery.',
         },
         {
-          title: 'Architecture',
+          title: 'Microservices Architecture',
           cards: [
             {
               title: 'User Service',
@@ -396,45 +611,17 @@ export const PORTFOLIO: PortfolioData = {
       ],
     },
     {
-      slug: 'inventory-monolithic',
+      slug: 'lseg-flower-exchange',
       category: 'software',
-      title: 'Inventory Manager (Monolithic)',
+      title: 'Flower Exchange Platform (LSEG)',
       summary:
-        'Monolithic Spring Boot backend with relational MySQL design, CRUD APIs, and optimized custom queries for inventory search with pagination.',
-      image: 'assets/images/Inventory Management_Resize.jpg',
-      tech: ['Java', 'Spring Boot', 'MySQL'],
+        'C++ flower trading platform with OOP-based order matching engine, buy/sell flows, and efficient trade execution algorithms.',
+      image: 'assets/images/LSEG Platforn.png',
+      tech: ['C++', 'OOP', 'Trading Engine'],
       links: [
         {
           label: 'View Code',
-          url: 'https://github.com/SadeepRathnayaka/Inventory-Manager-BackEnd',
-          type: 'github',
-        },
-        {
-          label: 'More Info',
-          url: '/projects/inventory-monolithic',
-          type: 'details',
-        },
-      ],
-      detailSections: [
-        {
-          title: 'Project Overview',
-          content:
-            'Scalable inventory management backend using Java and Spring Boot in a monolithic architecture, with interconnected MySQL tables and paginated inventory search.',
-        },
-      ],
-    },
-    {
-      slug: 'echo-ex-mini-game',
-      category: 'software',
-      title: 'Echo Ex Mini Game Backend',
-      summary:
-        'Spring Boot mini-game platform backend with JWT authentication and relational MySQL schema for players, inventory, and game state.',
-      image: 'assets/images/mini-game.png',
-      tech: ['Java', 'Spring Boot', 'MySQL'],
-      links: [
-        {
-          label: 'View Code',
-          url: 'https://github.com/SadeepRathnayaka/EcoEx-Mini-Game-BackEnd',
+          url: 'https://github.com/SadeepRathnayaka/LSEG-Flower-Exchange-Project',
           type: 'github',
         },
       ],
@@ -468,135 +655,17 @@ export const PORTFOLIO: PortfolioData = {
       ],
     },
     {
-      slug: 'lseg-flower-exchange',
+      slug: 'echo-ex-mini-game',
       category: 'software',
-      title: 'Flower Exchange Platform (LSEG)',
+      title: 'Echo Ex Mini Game Backend',
       summary:
-        'C++ flower trading platform with OOP-based order matching engine, buy/sell flows, and efficient trade execution algorithms.',
-      image: 'assets/images/LSEG Platforn.png',
-      tech: ['C++', 'OOP', 'Trading Engine'],
+        'Spring Boot mini-game platform backend with JWT authentication and relational MySQL schema for players, inventory, and game state.',
+      image: 'assets/images/mini-game.png',
+      tech: ['Java', 'Spring Boot', 'MySQL'],
       links: [
         {
           label: 'View Code',
-          url: 'https://github.com/SadeepRathnayaka/LSEG-Flower-Exchange-Project',
-          type: 'github',
-        },
-      ],
-    },
-    {
-      slug: 'hospital-cleaning-robot',
-      category: 'robotics',
-      title: 'Hospital Cleaning Robot (SUTD)',
-      summary:
-        'Mobile manipulator for hospital cleaning with point cloud processing, path planning, and collision avoidance using ROS, MoveIt, and Universal Robots.',
-      image: 'assets/images/UR Arm.png',
-      tech: ['C++', 'Python', 'ROS', 'MoveIt'],
-      links: [
-        {
-          label: 'LinkedIn',
-          url: 'https://www.linkedin.com/posts/sadeep-rathnayaka_internship-robotics-simulation-activity-7220534427246813184-I9_3',
-          type: 'linkedin',
-        },
-      ],
-    },
-    {
-      slug: 'turbobot',
-      category: 'robotics',
-      title: 'Turbobot: Autonomous Mobile Robot',
-      summary:
-        'Autonomous 4-wheel differential drive robot with ROS2, Nav2, Gazebo simulation, and RViz visualization using C++/Python nodes.',
-      image: 'assets/images/Turbobot.png',
-      tech: ['C++', 'Python', 'ROS2', 'Nav2'],
-      links: [
-        {
-          label: 'View Code',
-          url: 'https://github.com/SadeepRathnayaka/Turbobot-Autonomous-Robot',
-          type: 'github',
-        },
-        { label: 'More Info', url: '/projects/turbobot', type: 'details' },
-      ],
-      detailSections: [
-        {
-          title: 'Project Overview',
-          content:
-            'Four-wheel differential drive robot built from scratch with custom 3D modeling, ROS2 integration, and EKF-based localization — from mechanical design to autonomous navigation.',
-        },
-        {
-          title: 'Demonstration',
-          videoUrl: 'https://www.youtube.com/embed/c9c6hL1LTTQ',
-          videoCaption:
-            'Turbobot in action: autonomous navigation and control',
-        },
-        {
-          title: 'Key Features',
-          cards: [
-            {
-              title: '3D Model Design',
-              items: [
-                'SolidWorks chassis optimized for differential drive',
-                'Compact, durable mechanical layout',
-              ],
-            },
-            {
-              title: 'ROS2 & Nav2',
-              items: [
-                'Motion control and localization nodes',
-                'Gazebo simulation and RViz visualization',
-              ],
-            },
-          ],
-        },
-      ],
-    },
-    {
-      slug: 'flexobot',
-      category: 'robotics',
-      title: 'Flexobot: 6-DOF Robotic Arm',
-      summary:
-        '6-DOF robotic arm with ROS2, MoveIt2, SolidWorks modeling, URDF, RViz visualization, and joystick teleoperation.',
-      image: 'assets/images/Flexobot.png',
-      tech: ['C++', 'Python', 'ROS2', 'MoveIt2', 'SolidWorks'],
-      links: [
-        {
-          label: 'View Code',
-          url: 'https://github.com/SadeepRathnayaka/Flexobot-Robotics-Arm',
-          type: 'github',
-        },
-        { label: 'More Info', url: '/projects/flexobot', type: 'details' },
-      ],
-      detailSections: [
-        {
-          title: 'Project Overview',
-          content:
-            '6-DOF robotic arm with custom 3D modeling, ROS2 and MoveIt2 integration, joystick control, URDF modeling, and real-time manipulation planning.',
-        },
-        {
-          title: 'Demonstration',
-          videoUrl: 'https://www.youtube.com/embed/yZKS2mFUIUg',
-          videoCaption: 'Flexobot: robotic arm capabilities demo',
-        },
-        {
-          title: 'Key Features',
-          bullets: [
-            'SolidWorks design with six rotational joints',
-            'ROS2 URDF, RViz, and joint trajectory control',
-            'MoveIt2 motion planning and manipulation',
-          ],
-        },
-      ],
-    },
-    {
-      slug: 'parasitic-egg-detection',
-      category: 'ml',
-      title: 'Parasitic Egg Detection',
-      summary:
-        'AI system for detecting and classifying parasitic eggs using RTM-Det-tiny with image slicing and patch recombination for accuracy.',
-      image: 'assets/images/Egg Detection Ml.png',
-      tech: ['Python', 'Computer Vision', 'Deep Learning'],
-      links: [
-        {
-          label: 'View Code',
-          url: 'https://github.com/SadeepRathnayaka/Parasitic-Egg-Detection-and-Classification',
+          url: 'https://github.com/SadeepRathnayaka/EcoEx-Mini-Game-BackEnd',
           type: 'github',
         },
       ],
@@ -604,26 +673,48 @@ export const PORTFOLIO: PortfolioData = {
   ],
   skillCategories: [
     {
-      name: 'Backend',
+      name: 'Robotics',
       skills: [
-        { name: 'Backend Development', icon: 'bx bx-server', iconType: 'boxicon' },
-        { name: 'C#', icon: 'devicon-csharp-plain', iconType: 'devicon' },
-        { name: 'Java', icon: 'bx bxl-java', iconType: 'boxicon' },
-        { name: 'Python', icon: 'bx bxl-python', iconType: 'boxicon' },
-        { name: 'Spring Boot', icon: 'bx bxl-spring-boot', iconType: 'boxicon' },
-        { name: 'REST APIs', icon: 'bx bx-git-branch', iconType: 'boxicon' },
-        { name: 'Microservices', icon: 'bx bx-network-chart', iconType: 'boxicon' },
-        { name: 'Monolithic Architecture', icon: 'bx bx-cube', iconType: 'boxicon' },
-        { name: 'gRPC', icon: 'bx bx-transfer-alt', iconType: 'boxicon' },
-        { name: 'Kafka', icon: 'bx bx-git-merge', iconType: 'boxicon' },
+        { name: 'ROS 2', icon: 'bx bx-bot', iconType: 'boxicon' },
+        { name: 'MoveIt 2', icon: 'bx bx-move', iconType: 'boxicon' },
+        { name: 'Nav2', icon: 'bx bx-current-location', iconType: 'boxicon' },
+        { name: 'Gazebo', icon: 'bx bx-cube-alt', iconType: 'boxicon' },
+        { name: 'RViz', icon: 'bx bx-show', iconType: 'boxicon' },
+        { name: 'Webots', icon: 'bx bx-world', iconType: 'boxicon' },
+        { name: 'SolidWorks', icon: 'bx bx-shape-polygon', iconType: 'boxicon' },
+        { name: 'URDF', icon: 'bx bx-sitemap', iconType: 'boxicon' },
       ],
     },
     {
-      name: 'Frontend',
+      name: 'Robotics Foundations',
       skills: [
+        { name: 'Kinematics', icon: 'bx bx-math', iconType: 'boxicon' },
+        { name: 'Motion Planning', icon: 'bx bx-git-commit', iconType: 'boxicon' },
+        { name: 'EKF / Sensor Fusion', icon: 'bx bx-line-chart', iconType: 'boxicon' },
+        { name: 'SLAM', icon: 'bx bx-map-alt', iconType: 'boxicon' },
+        { name: 'Machine Vision', icon: 'bx bx-camera', iconType: 'boxicon' },
+        { name: 'Deep Learning', icon: 'bx bx-brain', iconType: 'boxicon' },
+      ],
+    },
+    {
+      name: 'Languages',
+      skills: [
+        { name: 'C++', icon: 'devicon-cplusplus-plain', iconType: 'devicon' },
+        { name: 'Python', icon: 'bx bxl-python', iconType: 'boxicon' },
+        { name: 'Java', icon: 'bx bxl-java', iconType: 'boxicon' },
+        { name: 'C#', icon: 'devicon-csharp-plain', iconType: 'devicon' },
         { name: 'TypeScript', icon: 'bx bxl-typescript', iconType: 'boxicon' },
+      ],
+    },
+    {
+      name: 'Backend & Frontend',
+      skills: [
+        { name: 'Spring Boot', icon: 'bx bxl-spring-boot', iconType: 'boxicon' },
+        { name: 'REST APIs', icon: 'bx bx-git-branch', iconType: 'boxicon' },
+        { name: 'Microservices', icon: 'bx bx-network-chart', iconType: 'boxicon' },
+        { name: 'Kafka', icon: 'bx bx-git-merge', iconType: 'boxicon' },
+        { name: 'gRPC', icon: 'bx bx-transfer-alt', iconType: 'boxicon' },
         { name: 'Angular', icon: 'bx bxl-angular', iconType: 'boxicon' },
-        { name: 'JavaScript', icon: 'bx bxl-javascript', iconType: 'boxicon' },
       ],
     },
     {
@@ -632,17 +723,49 @@ export const PORTFOLIO: PortfolioData = {
         { name: 'SQL', icon: 'bx bx-data', iconType: 'boxicon' },
         { name: 'MySQL', icon: 'custom-mysql', iconType: 'custom' },
         { name: 'Oracle', icon: 'bx bxs-data', iconType: 'boxicon' },
-        { name: 'Relational Databases', icon: 'bx bx-table', iconType: 'boxicon' },
+        { name: 'PostgreSQL', icon: 'devicon-postgresql-plain', iconType: 'devicon' },
       ],
     },
     {
-      name: 'DevOps & Tools',
+      name: 'Tools',
       skills: [
-        { name: 'Version Control (Git)', icon: 'bx bxl-git', iconType: 'boxicon' },
         { name: 'Git', icon: 'bx bxl-git', iconType: 'boxicon' },
+        { name: 'Docker', icon: 'bx bxl-docker', iconType: 'boxicon' },
+        { name: 'n8n', icon: 'bx bx-git-repo-forked', iconType: 'boxicon' },
+        { name: 'Altium', icon: 'bx bx-chip', iconType: 'boxicon' },
       ],
-    }
-    
+    },
+  ],
+  achievements: [
+    {
+      title: '2nd Runners-Up',
+      event: 'RoboRoarz 2024, Singapore',
+      year: '2024',
+      description: 'Reconfigurable robot navigation competition.',
+      icon: 'bx bx-trophy',
+      link: {
+        url: 'https://www.linkedin.com/posts/entc-uom_entc-eclub-roboroarz2024-activity-7177874795420680192--GV4',
+        label: 'View post',
+      },
+    },
+    {
+      title: 'Champions',
+      event: 'Robot Design Competition 2023 (Virtual)',
+      year: '2023',
+      description: 'Robot design and programming in a Webots simulation, University of Moratuwa.',
+      icon: 'bx bx-medal',
+    },
+    {
+      title: 'Champions',
+      event: 'SparkLink 1.0, University of Ruhuna',
+      year: '2023',
+      description: 'Hardware description language (HDL) design competition.',
+      icon: 'bx bx-chip',
+      link: {
+        url: 'https://www.linkedin.com/posts/ieee-student-branch-university-of-ruhuna_sparklink1-phase2-ieee-activity-7108102675027660800-M07a',
+        label: 'View post',
+      },
+    },
   ],
   contact: {
     email: 'sadeepm20@gmail.com',

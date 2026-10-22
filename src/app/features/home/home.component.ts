@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { PORTFOLIO } from '../../data/portfolio.data';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [NgFor],
+  imports: [NgFor, NgIf],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })

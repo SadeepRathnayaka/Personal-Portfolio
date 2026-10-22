@@ -11,6 +11,14 @@
         }}</span>
       </div>
       <p class="bio">{{ profile.bio }}</p>
+      <div class="interests" *ngIf="profile.researchInterests?.length">
+        <span class="interests-label">Research interests</span>
+        <ul class="interest-tags">
+          <li class="interest-tag" *ngFor="let interest of profile.researchInterests">
+            {{ interest }}
+          </li>
+        </ul>
+      </div>
       <div class="social-buttons">
         <a
           *ngFor="let link of profile.socialLinks"

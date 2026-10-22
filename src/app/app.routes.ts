@@ -3,7 +3,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { ProjectDetailComponent } from './features/projects/project-detail/project-detail.component';
 
 export const routes: Routes = [
-  { path: '', component: HomePageComponent, title: 'Sadeep Rathnayaka | Full Stack Engineer' },
+  { path: '', component: HomePageComponent, title: 'Sadeep Rathnayaka | Robotics Engineer & Software Developer' },
   {
     path: 'projects/:slug',
     component: ProjectDetailComponent,
