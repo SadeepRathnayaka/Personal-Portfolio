@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { NgFor, NgIf } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { Project, ProjectCategory } from '../../data/portfolio.models';
+import { ProjectVideoGalleryComponent } from '../video/project-video-gallery.component';
 
 const CATEGORY_LABELS: Record<ProjectCategory, string> = {
   software: 'Software',
@@ -14,7 +15,7 @@ const MAX_VISIBLE_TECH = 6;
 @Component({
   selector: 'app-project-card',
   standalone: true,
-  imports: [NgFor, NgIf, RouterLink],
+  imports: [NgFor, NgIf, RouterLink, ProjectVideoGalleryComponent],
   templateUrl: './project-card.component.html',
   styleUrls: ['./project-card.component.scss'],
 })
@@ -41,6 +42,10 @@ export class ProjectCardComponent {
 
   get hasLinks(): boolean {
     return this.project.links.length > 0;
+  }
+
+  get hasVideos(): boolean {
+    return (this.project.videos?.length ?? 0) > 0;
   }
 
   get isCurrent(): boolean {

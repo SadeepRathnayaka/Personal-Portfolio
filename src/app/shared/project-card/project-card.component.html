@@ -1,10 +1,20 @@
-<article class="project-row">
-  <div
-    class="project-media"
-    [style.background-image]="'url(' + imageUrl(project.image) + ')'"
-    role="img"
-    [attr.aria-label]="project.title + ' preview'"
-  ></div>
+<article class="project-row" [class.project-row--video]="hasVideos">
+  <div class="project-gallery" *ngIf="hasVideos; else imageMedia">
+    <app-project-video-gallery
+      [videos]="project.videos ?? []"
+      [projectTitle]="project.title"
+      [fallbackImage]="project.image"
+    ></app-project-video-gallery>
+  </div>
+
+  <ng-template #imageMedia>
+    <div
+      class="project-media"
+      [style.background-image]="'url(' + imageUrl(project.image) + ')'"
+      role="img"
+      [attr.aria-label]="project.title + ' preview'"
+    ></div>
+  </ng-template>
 
   <div class="project-body">
     <div class="project-meta">

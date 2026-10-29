@@ -164,6 +164,57 @@
   font-style: italic;
 }
 
+/* Projects with videos: the gallery takes the larger share of the card */
+.project-row--video {
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+
+  &:hover {
+    transform: none;
+  }
+
+  .project-body {
+    justify-content: center;
+    padding: 1.4rem 1.6rem;
+  }
+
+  .project-title {
+    font-size: 1.3rem;
+  }
+
+  .project-excerpt {
+    flex: initial;
+    -webkit-line-clamp: 7;
+  }
+}
+
+.project-gallery {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem;
+  background: rgba(2, 6, 23, 0.35);
+  border-right: 1px solid var(--border);
+}
+
+@media (max-width: 960px) {
+  .project-row--video {
+    grid-template-columns: 1fr;
+
+    .project-body {
+      padding: 1.1rem 1.2rem 1.25rem;
+    }
+
+    .project-excerpt {
+      -webkit-line-clamp: 5;
+    }
+  }
+
+  .project-gallery {
+    padding: 0.5rem;
+    border-right: 0;
+    border-bottom: 1px solid var(--border);
+  }
+}
+
 @media (max-width: 768px) {
   .project-row {
     grid-template-columns: 1fr;

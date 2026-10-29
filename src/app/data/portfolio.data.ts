@@ -183,6 +183,13 @@ export const PORTFOLIO: PortfolioData = {
       summary:
         'Semi-humanoid service robot that moves between floors on its own. I designed and built its 4-DoF arm for elevator-button interaction: camera-based button detection, 3D button localization, MoveIt motion planning, Gazebo simulation, and integration with the physical robot.',
       image: 'assets/images/Mobile Robot Receptionist.svg',
+      // Paste a YouTube link or video ID into each `youtube` field ('' shows a placeholder).
+      videos: [
+        { youtube: '', title: 'Full demo: robot rides the elevator' },
+        { youtube: '', title: 'Elevator-button detection' },
+        { youtube: '', title: 'Arm pressing the button on hardware' },
+        { youtube: '', title: 'MoveIt planning in Gazebo' },
+      ],
       tech: ['ROS 2', 'MoveIt 2', 'Gazebo', 'C++', 'Python', 'SolidWorks', 'Computer Vision'],
       links: [
         {
@@ -248,6 +255,12 @@ export const PORTFOLIO: PortfolioData = {
       summary:
         'Manipulator control for an autonomous hospital-cleaning robot that cleans high-touch surfaces. Built a Gazebo simulation to check planned arm motions against joint constraints, integrated ROS 2 and MoveIt for planning and trajectory execution, and validated the motions on a UR10e.',
       image: 'assets/images/UR Arm.png',
+      // Paste a YouTube link or video ID into each `youtube` field ('' shows a placeholder).
+      videos: [
+        { youtube: '', title: 'UR10e cleaning motion on hardware' },
+        { youtube: '', title: 'Gazebo simulation of arm trajectories' },
+        { youtube: '', title: 'MoveIt planning against joint limits' },
+      ],
       tech: ['ROS 2', 'MoveIt', 'Gazebo', 'UR10e', 'C++', 'Python'],
       links: [
         {
@@ -284,6 +297,12 @@ export const PORTFOLIO: PortfolioData = {
       summary:
         'Four-wheel differential-drive robot designed in SolidWorks and built from scratch. Autonomous navigation with ROS 2 and Nav2, tested in Gazebo, then a physical build with a Raspberry Pi, wheel encoders and an IMU for sensor fusion and state estimation.',
       image: 'assets/images/Turbobot.png',
+      // Paste a YouTube link or video ID into each `youtube` field ('' shows a placeholder).
+      videos: [
+        { youtube: 'https://youtu.be/c9c6hL1LTTQ', title: 'Autonomous navigation demo' },
+        { youtube: '', title: 'Nav2 navigation in Gazebo' },
+        { youtube: '', title: 'Physical build: sensor fusion & EKF' },
+      ],
       tech: ['ROS 2', 'Nav2', 'Gazebo', 'C++', 'Python', 'SolidWorks', 'Raspberry Pi'],
       links: [
         {
@@ -298,12 +317,6 @@ export const PORTFOLIO: PortfolioData = {
           title: 'Project Overview',
           content:
             'Four-wheel differential drive robot built from scratch with custom 3D modeling, ROS 2 integration, and EKF-based localization — from mechanical design to autonomous navigation.',
-        },
-        {
-          title: 'Demonstration',
-          videoUrl: 'https://www.youtube.com/embed/c9c6hL1LTTQ',
-          videoCaption:
-            'Turbobot in action: autonomous navigation and control',
         },
         {
           title: 'Key Features',
@@ -333,6 +346,12 @@ export const PORTFOLIO: PortfolioData = {
       summary:
         '6-DOF robotic arm with ROS 2, MoveIt 2, SolidWorks modeling, URDF, RViz visualization, and joystick teleoperation.',
       image: 'assets/images/Flexobot.png',
+      // Paste a YouTube link or video ID into each `youtube` field ('' shows a placeholder).
+      videos: [
+        { youtube: 'https://youtu.be/yZKS2mFUIUg', title: 'Robotic arm capabilities demo' },
+        { youtube: '', title: 'Joystick teleoperation' },
+        { youtube: '', title: 'MoveIt 2 planning in RViz' },
+      ],
       tech: ['C++', 'Python', 'ROS 2', 'MoveIt 2', 'SolidWorks'],
       links: [
         {
@@ -347,11 +366,6 @@ export const PORTFOLIO: PortfolioData = {
           title: 'Project Overview',
           content:
             '6-DOF robotic arm with custom 3D modeling, ROS 2 and MoveIt 2 integration, joystick control, URDF modeling, and real-time manipulation planning.',
-        },
-        {
-          title: 'Demonstration',
-          videoUrl: 'https://www.youtube.com/embed/yZKS2mFUIUg',
-          videoCaption: 'Flexobot: robotic arm capabilities demo',
         },
         {
           title: 'Key Features',

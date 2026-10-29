@@ -4,11 +4,12 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { DomSanitizer, SafeResourceUrl, Title } from '@angular/platform-browser';
 import { getProjectBySlug } from '../../../data/portfolio.data';
 import { DetailSection, Project } from '../../../data/portfolio.models';
+import { ProjectVideoGalleryComponent } from '../../../shared/video/project-video-gallery.component';
 
 @Component({
   selector: 'app-project-detail',
   standalone: true,
-  imports: [NgFor, NgIf, RouterLink],
+  imports: [NgFor, NgIf, RouterLink, ProjectVideoGalleryComponent],
   templateUrl: './project-detail.component.html',
   styleUrls: ['./project-detail.component.scss'],
 })

@@ -14,6 +14,15 @@
       </div>
     </header>
 
+    <app-project-video-gallery
+      *ngIf="project.videos?.length"
+      class="detail-gallery"
+      variant="detail"
+      [videos]="project.videos ?? []"
+      [projectTitle]="project.title"
+      [fallbackImage]="project.image"
+    ></app-project-video-gallery>
+
     <p class="detail-summary">{{ project.summary }}</p>
 
     <div class="detail-sections" *ngIf="project.detailSections?.length">

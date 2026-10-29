@@ -46,6 +46,16 @@ export interface DetailSection {
   videoCaption?: string;
 }
 
+/**
+ * A YouTube video shown in a project's video gallery.
+ * `youtube` accepts a full link (youtu.be/…, youtube.com/watch?v=…, /shorts/…, /embed/…)
+ * or just the 11-character video ID. Leave it as '' to show a "Video coming soon" placeholder.
+ */
+export interface ProjectVideo {
+  youtube: string;
+  title: string;
+}
+
 export interface Project {
   slug: string;
   category: ProjectCategory;
@@ -54,6 +64,8 @@ export interface Project {
   image: string;
   tech: string[];
   links: ProjectLink[];
+  /** First video is the large featured one; the rest play alongside it. */
+  videos?: ProjectVideo[];
   detailSections?: DetailSection[];
   badge?: 'current';
 }
