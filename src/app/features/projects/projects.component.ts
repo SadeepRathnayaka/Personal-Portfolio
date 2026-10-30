@@ -7,8 +7,6 @@ import { Project, ProjectCategory } from '../../data/portfolio.models';
 
 type FilterCategory = 'all' | ProjectCategory;
 
-const PINNED_SLUG = 'mobile-robot-receptionist';
-
 @Component({
   selector: 'app-projects',
   standalone: true,
@@ -24,21 +22,14 @@ export class ProjectsComponent {
     { id: 'software', label: 'Software Development' },
   ];
 
-  activeCategory: FilterCategory = 'all';
+  // Robotics is shown first; project order follows portfolio.data.ts.
+  activeCategory: FilterCategory = 'robotics';
   readonly allProjects = PORTFOLIO.projects;
 
   get displayProjects(): Project[] {
-    const filtered =
-      this.activeCategory === 'all'
-        ? [...this.allProjects]
-        : this.allProjects.filter((p) => p.category === this.activeCategory);
-
-    const pinned = filtered.find((p) => p.slug === PINNED_SLUG);
-    if (!pinned) {
-      return filtered;
-    }
-
-    return [pinned, ...filtered.filter((p) => p.slug !== PINNED_SLUG)];
+    return this.activeCategory === 'all'
+      ? this.allProjects
+      : this.allProjects.filter((p) => p.category === this.activeCategory);
   }
 
   setCategory(id: FilterCategory): void {

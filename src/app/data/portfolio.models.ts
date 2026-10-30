@@ -53,7 +53,12 @@ export interface DetailSection {
  */
 export interface ProjectVideo {
   youtube: string;
-  title: string;
+  /** Optional caption shown on the tile and in the full-size player. */
+  title?: string;
+  /** Defaults to 'portrait' for /shorts/ links and 'landscape' otherwise. */
+  orientation?: 'landscape' | 'portrait';
+  /** Optional small badge, e.g. '1.5×' for sped-up footage. */
+  note?: string;
 }
 
 export interface Project {

@@ -11,9 +11,9 @@ export const PORTFOLIO: PortfolioData = {
     bio:
       'Robotics engineer and software developer with First-Class Honours in Electronic and Telecommunication Engineering from the University of Moratuwa, Sri Lanka. I build robots end to end, from SolidWorks design and Gazebo simulation to ROS 2 control, motion planning and navigation on real hardware, including manipulator work on a UR10e during my research internship at SUTD. Industry experience as a software engineer gives me a strong foundation in writing clean, maintainable code.',
     researchInterests: [
-      'Autonomous Navigation',
-      'Manipulation & Motion Planning',
-      'Service & Healthcare Robotics',
+      'Reinforcement Learning for Robotics',
+      'Learning-Based Manipulation & Motion Planning',
+      'Sim-to-Real Transfer',
       'Human-Robot Interaction',
     ],
     image: 'assets/images/Profile Image HD.png',
@@ -177,18 +177,62 @@ export const PORTFOLIO: PortfolioData = {
   ],
   projects: [
     {
+      slug: 'hospital-cleaning-robot',
+      category: 'robotics',
+      title: 'Hospital Cleaning Robot (SUTD Research Internship)',
+      summary:
+        'Manipulator control for an autonomous hospital-cleaning robot that cleans high-touch surfaces. Built a Gazebo simulation to check planned arm motions against joint constraints, integrated ROS 2 and MoveIt for planning and trajectory execution, and validated the motions on a UR10e.',
+      image: 'assets/images/UR Arm.png',
+      videos: [
+        { youtube: 'https://youtube.com/shorts/rII2L4s5PUk' },
+        { youtube: 'https://youtube.com/shorts/NXZMr3iGzD8' },
+        { youtube: 'https://youtu.be/I2PujjUCM8A', note: '1.5×' },
+        { youtube: 'https://youtu.be/GU8TJrDsMKU', note: '1.5×' },
+        { youtube: 'https://youtube.com/shorts/ny_wRmqKX3E', note: '1.5×' },
+      ],
+      tech: ['ROS 2', 'MoveIt', 'Gazebo', 'UR10e', 'C++', 'Python'],
+      links: [
+        {
+          label: 'LinkedIn',
+          url: 'https://www.linkedin.com/posts/sadeep-rathnayaka_internship-robotics-simulation-activity-7220534427246813184-I9_3',
+          type: 'linkedin',
+        },
+        {
+          label: 'More Info',
+          url: '/projects/hospital-cleaning-robot',
+          type: 'details',
+        },
+      ],
+      detailSections: [
+        {
+          title: 'Project Overview',
+          content:
+            'During my six-month research internship at the Singapore University of Technology and Design (SUTD), supervised by Prof. Tan U-Xuan, I contributed to an autonomous hospital-cleaning robot. My work focused on controlling its manipulator to clean high-touch surfaces.',
+        },
+        {
+          title: 'What I Worked On',
+          bullets: [
+            'Developed a Gazebo simulation to evaluate planned robotic-arm motions against the arm’s joint constraints.',
+            'Integrated ROS 2 and the MoveIt framework with the simulation for manipulator control, motion planning, and trajectory execution.',
+            'Tested and validated the planned motions on a Universal Robots UR10e industrial manipulator.',
+          ],
+        },
+      ],
+    },
+    {
       slug: 'mobile-robot-receptionist',
       category: 'robotics',
       title: 'Mobile Robot Receptionist (Final-Year Project)',
       summary:
         'Semi-humanoid service robot that moves between floors on its own. I designed and built its 4-DoF arm for elevator-button interaction: camera-based button detection, 3D button localization, MoveIt motion planning, Gazebo simulation, and integration with the physical robot.',
       image: 'assets/images/Mobile Robot Receptionist.svg',
-      // Paste a YouTube link or video ID into each `youtube` field ('' shows a placeholder).
       videos: [
-        { youtube: '', title: 'Full demo: robot rides the elevator' },
-        { youtube: '', title: 'Elevator-button detection' },
-        { youtube: '', title: 'Arm pressing the button on hardware' },
-        { youtube: '', title: 'MoveIt planning in Gazebo' },
+        { youtube: 'https://youtu.be/H6jP_xpoX-s' },
+        { youtube: 'https://youtu.be/M1uYARhTSok' },
+        { youtube: 'https://youtu.be/eVwaBHZZmEw' },
+        { youtube: 'https://youtu.be/392uFjoMfYo' },
+        { youtube: 'https://youtube.com/shorts/d1cygHEgMak' },
+        { youtube: 'https://youtube.com/shorts/NJrXbc7O25g' },
       ],
       tech: ['ROS 2', 'MoveIt 2', 'Gazebo', 'C++', 'Python', 'SolidWorks', 'Computer Vision'],
       links: [
@@ -249,59 +293,17 @@ export const PORTFOLIO: PortfolioData = {
       ],
     },
     {
-      slug: 'hospital-cleaning-robot',
-      category: 'robotics',
-      title: 'Hospital Cleaning Robot (SUTD Research Internship)',
-      summary:
-        'Manipulator control for an autonomous hospital-cleaning robot that cleans high-touch surfaces. Built a Gazebo simulation to check planned arm motions against joint constraints, integrated ROS 2 and MoveIt for planning and trajectory execution, and validated the motions on a UR10e.',
-      image: 'assets/images/UR Arm.png',
-      // Paste a YouTube link or video ID into each `youtube` field ('' shows a placeholder).
-      videos: [
-        { youtube: '', title: 'UR10e cleaning motion on hardware' },
-        { youtube: '', title: 'Gazebo simulation of arm trajectories' },
-        { youtube: '', title: 'MoveIt planning against joint limits' },
-      ],
-      tech: ['ROS 2', 'MoveIt', 'Gazebo', 'UR10e', 'C++', 'Python'],
-      links: [
-        {
-          label: 'LinkedIn',
-          url: 'https://www.linkedin.com/posts/sadeep-rathnayaka_internship-robotics-simulation-activity-7220534427246813184-I9_3',
-          type: 'linkedin',
-        },
-        {
-          label: 'More Info',
-          url: '/projects/hospital-cleaning-robot',
-          type: 'details',
-        },
-      ],
-      detailSections: [
-        {
-          title: 'Project Overview',
-          content:
-            'During my six-month research internship at the Singapore University of Technology and Design (SUTD), supervised by Prof. Tan U-Xuan, I contributed to an autonomous hospital-cleaning robot. My work focused on controlling its manipulator to clean high-touch surfaces.',
-        },
-        {
-          title: 'What I Worked On',
-          bullets: [
-            'Developed a Gazebo simulation to evaluate planned robotic-arm motions against the arm’s joint constraints.',
-            'Integrated ROS 2 and the MoveIt framework with the simulation for manipulator control, motion planning, and trajectory execution.',
-            'Tested and validated the planned motions on a Universal Robots UR10e industrial manipulator.',
-          ],
-        },
-      ],
-    },
-    {
       slug: 'turbobot',
       category: 'robotics',
       title: 'Turbobot: Autonomous Mobile Robot',
       summary:
         'Four-wheel differential-drive robot designed in SolidWorks and built from scratch. Autonomous navigation with ROS 2 and Nav2, tested in Gazebo, then a physical build with a Raspberry Pi, wheel encoders and an IMU for sensor fusion and state estimation.',
       image: 'assets/images/Turbobot.png',
-      // Paste a YouTube link or video ID into each `youtube` field ('' shows a placeholder).
       videos: [
-        { youtube: 'https://youtu.be/c9c6hL1LTTQ', title: 'Autonomous navigation demo' },
-        { youtube: '', title: 'Nav2 navigation in Gazebo' },
-        { youtube: '', title: 'Physical build: sensor fusion & EKF' },
+        { youtube: 'https://youtu.be/RVjgTkofokA' },
+        { youtube: 'https://youtu.be/PKGTT9TSPVY' },
+        { youtube: 'https://youtu.be/gQOAwqNatAA' },
+        { youtube: 'https://youtu.be/pZZ1d5MUNsE' },
       ],
       tech: ['ROS 2', 'Nav2', 'Gazebo', 'C++', 'Python', 'SolidWorks', 'Raspberry Pi'],
       links: [
@@ -346,11 +348,10 @@ export const PORTFOLIO: PortfolioData = {
       summary:
         '6-DOF robotic arm with ROS 2, MoveIt 2, SolidWorks modeling, URDF, RViz visualization, and joystick teleoperation.',
       image: 'assets/images/Flexobot.png',
-      // Paste a YouTube link or video ID into each `youtube` field ('' shows a placeholder).
       videos: [
-        { youtube: 'https://youtu.be/yZKS2mFUIUg', title: 'Robotic arm capabilities demo' },
-        { youtube: '', title: 'Joystick teleoperation' },
-        { youtube: '', title: 'MoveIt 2 planning in RViz' },
+        { youtube: 'https://youtu.be/WqC5JO2ScCo' },
+        { youtube: 'https://youtu.be/xkA1Gb12svQ' },
+        { youtube: 'https://youtube.com/shorts/GjdIf3EjvK4' },
       ],
       tech: ['C++', 'Python', 'ROS 2', 'MoveIt 2', 'SolidWorks'],
       links: [
@@ -374,6 +375,25 @@ export const PORTFOLIO: PortfolioData = {
             'ROS 2 URDF, RViz, and joint trajectory control',
             'MoveIt 2 motion planning and manipulation',
           ],
+        },
+      ],
+    },
+    {
+      slug: 'robot-design-competition-webots',
+      category: 'robotics',
+      title: 'Robot Design Competition: Webots Simulation',
+      summary:
+        'Autonomous robot for the EN2553 Robot Design & Competition module, simulated in Webots. A C++ controller runs the whole course: PID line following on IR sensors, ultrasonic wall following, colour-based dotted-line selection, and a chess challenge where the robot finds a one-move checkmate as a rook, opens a chamber door and picks up boxes with a gripper designed in SolidWorks.',
+      image: 'https://i.ytimg.com/vi/e3cvqNaZ6c4/hqdefault.jpg',
+      videos: [
+        { youtube: 'https://youtu.be/e3cvqNaZ6c4', note: '1.8×' },
+      ],
+      tech: ['Webots', 'C++', 'PID Control', 'SolidWorks'],
+      links: [
+        {
+          label: 'View Code',
+          url: 'https://github.com/SadeepRathnayaka/EN2553-Robot-Design-and-Competition',
+          type: 'github',
         },
       ],
     },
