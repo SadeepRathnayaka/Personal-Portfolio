@@ -1,0 +1,143 @@
+.lb {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  background: rgba(2, 6, 23, 0.86);
+  backdrop-filter: blur(6px);
+  animation: lb-fade 0.18s ease-out;
+}
+
+.lb-panel {
+  width: min(1100px, 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.lb-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.lb-titles {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.lb-project {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.lb-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.lb-frame {
+  position: relative;
+  width: min(100%, calc(78vh * 16 / 9));
+  margin: 0 auto;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: #000;
+  border: 1px solid var(--border-strong);
+  box-shadow: var(--shadow-2);
+
+  iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+}
+
+.lb-frame--portrait {
+  width: min(100%, calc(78vh * 9 / 16));
+  aspect-ratio: 9 / 16;
+}
+
+.lb-note {
+  margin-left: 0.4rem;
+  padding: 0.1rem 0.45rem;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  vertical-align: middle;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-strong);
+}
+
+.lb-foot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.lb-icon {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  background: var(--surface-2);
+  border: 1px solid var(--border-strong);
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+
+  &:hover,
+  &:focus-visible {
+    outline: none;
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+}
+
+.lb-dots {
+  display: flex;
+  gap: 0.45rem;
+}
+
+.lb-dot {
+  width: 9px;
+  height: 9px;
+  padding: 0;
+  border-radius: 50%;
+  border: 0;
+  background: var(--border-strong);
+  cursor: pointer;
+
+  &.active {
+    background: var(--accent);
+    box-shadow: 0 0 10px rgba(56, 189, 248, 0.6);
+  }
+}
+
+@keyframes lb-fade {
+  from {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lb {
+    animation: none;
+  }
+}

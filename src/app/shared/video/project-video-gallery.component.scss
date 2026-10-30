@@ -1,0 +1,394 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.vg {
+  --vg-gap: 0.5rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--vg-gap);
+}
+
+/* Portrait featured video on the left, the other clips on the right */
+.vg--side {
+  align-items: stretch;
+}
+
+.vg-rows {
+  container-type: inline-size;
+  display: flex;
+  flex-direction: column;
+  gap: var(--vg-gap);
+  min-width: 0;
+}
+
+.vg--side .vg-rows {
+  justify-content: center;
+}
+
+.vg-row {
+  display: grid;
+  gap: var(--vg-gap);
+  width: 100%;
+  margin-inline: auto;
+
+  .vg-tile {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+/*
+ * Panning strip for cards with many clips. Every tile keeps the same height
+ * and its own width (vertical Shorts are narrow, landscape clips are wide).
+ * The track slides right-to-left, pauses, slides back, and stops on hover.
+ */
+.vg-strip {
+  --vg-strip-h: 140px;
+  container-type: inline-size;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 3%, #000 97%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 3%, #000 97%, transparent);
+}
+
+.vg-strip-track {
+  display: flex;
+  gap: var(--vg-gap);
+  width: max-content;
+  animation: vg-pan var(--vg-pan-duration, 16s) ease-in-out infinite alternate;
+}
+
+.vg-strip:hover .vg-strip-track,
+.vg-strip:focus-within .vg-strip-track {
+  animation-play-state: paused;
+}
+
+.vg-strip-item {
+  flex: none;
+  height: var(--vg-strip-h);
+  width: calc(var(--vg-strip-h) * var(--vg-aspect, 1.7778));
+
+  .vg-tile {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@keyframes vg-pan {
+  0%,
+  8% {
+    transform: translateX(0);
+  }
+  92%,
+  100% {
+    /* Track width minus the visible width; never moves right if it already fits */
+    transform: translateX(min(0px, calc(100cqw - 100%)));
+  }
+}
+
+/* Browsers without container query units: let people scroll the strip instead */
+@supports not (width: 1cqw) {
+  .vg-strip {
+    overflow-x: auto;
+  }
+
+  .vg-strip-track {
+    animation: none;
+  }
+}
+
+.vg-tile {
+  position: relative;
+  margin: 0;
+  min-width: 0;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  isolation: isolate;
+  background: #020617;
+  border: 1px solid var(--border);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    border-color: rgba(56, 189, 248, 0.55);
+    box-shadow: var(--shadow-glow);
+  }
+}
+
+.vg-tile--featured {
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-lg);
+}
+
+/* A portrait featured video with nothing beside it */
+.vg:not(.vg--side) .vg-tile--featured.vg-tile--portrait {
+  justify-self: center;
+  aspect-ratio: 9 / 16;
+  height: min(460px, 70vh);
+}
+
+.vg--side .vg-tile--featured {
+  aspect-ratio: auto;
+  align-self: stretch;
+}
+
+.vg-poster {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+
+/*
+ * The iframe is 3x taller than the tile and vertically centred, so the video
+ * (landscape or vertical) fills the tile while YouTube's title bar and
+ * watermark, pinned to the iframe's top and bottom edges, fall outside it.
+ * The slight scale hides hairline letterboxing when a tile is a few pixels
+ * off the video's exact aspect ratio.
+ */
+.vg-frame {
+  position: absolute;
+  left: 0;
+  top: -100%;
+  width: 100%;
+  height: 300%;
+  border: 0;
+  pointer-events: none;
+  z-index: 1;
+  transform: scale(1.05);
+}
+
+.vg-hit {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  color: #fff;
+  background: linear-gradient(180deg, transparent 55%, rgba(2, 6, 23, 0.78) 100%);
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: inset 0 0 0 2px var(--accent);
+  }
+}
+
+.vg-play {
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  font-size: 1.9rem;
+  background: rgba(2, 6, 23, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  transform: scale(0.88);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.vg-hit:hover .vg-play,
+.vg-hit:focus-visible .vg-play,
+.vg--idle .vg-play {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.vg-tile:not(.vg-tile--featured) .vg-play {
+  width: 32px;
+  height: 32px;
+  font-size: 1.2rem;
+}
+
+.vg-sound {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  background: rgba(2, 6, 23, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px);
+
+  i {
+    font-size: 0.9rem;
+  }
+}
+
+/* On a narrow portrait tile there's only room for the icon */
+.vg-tile--portrait .vg-sound {
+  top: 0.45rem;
+  right: 0.45rem;
+  padding: 0.2rem;
+  font-size: 0;
+  gap: 0;
+}
+
+.vg-note {
+  position: absolute;
+  top: 0.4rem;
+  left: 0.4rem;
+  z-index: 3;
+  pointer-events: none;
+  padding: 0.1rem 0.4rem;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: #fff;
+  background: rgba(2, 6, 23, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.vg-caption {
+  position: absolute;
+  left: 0.55rem;
+  right: 0.55rem;
+  bottom: 0.4rem;
+  z-index: 3;
+  pointer-events: none;
+  font-size: 0.7rem;
+  font-weight: 500;
+  line-height: 1.3;
+  color: #fff;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.8);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.vg-tile--featured .vg-caption {
+  left: 0.85rem;
+  right: 0.85rem;
+  bottom: 0.65rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* "Video coming soon" placeholder */
+.vg-tile--placeholder {
+  border-style: dashed;
+  border-color: var(--border-strong);
+
+  .vg-poster {
+    filter: blur(8px) brightness(0.45) saturate(0.8);
+    transform: scale(1.15);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: linear-gradient(180deg, transparent 50%, rgba(2, 6, 23, 0.7) 100%);
+  }
+}
+
+.vg-soon {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  padding-bottom: 1.1rem;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+
+  i {
+    font-size: 1.4rem;
+    color: var(--accent);
+  }
+}
+
+.vg-tile--featured .vg-soon {
+  gap: 0.4rem;
+  font-size: 0.75rem;
+
+  i {
+    font-size: 2.4rem;
+  }
+}
+
+/* Larger variant used at the top of a project's detail page */
+.vg--detail {
+  --vg-gap: 0.75rem;
+
+  .vg-caption {
+    font-size: 0.8rem;
+  }
+
+  .vg-tile--featured .vg-caption {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .vg {
+    --vg-gap: 0.35rem;
+  }
+
+  .vg-strip {
+    --vg-strip-h: 104px;
+  }
+
+  .vg-tile:not(.vg-tile--featured) {
+    .vg-caption {
+      font-size: 0.6rem;
+      left: 0.35rem;
+      right: 0.35rem;
+      bottom: 0.25rem;
+    }
+
+    .vg-soon span {
+      display: none;
+    }
+
+    .vg-play {
+      width: 26px;
+      height: 26px;
+      font-size: 1rem;
+    }
+  }
+
+  .vg-tile--featured .vg-sound {
+    font-size: 0;
+    gap: 0;
+    padding: 0.2rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vg-play,
+  .vg-tile {
+    transition: none;
+  }
+
+  .vg-strip {
+    overflow-x: auto;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  .vg-strip-track {
+    animation: none;
+  }
+}

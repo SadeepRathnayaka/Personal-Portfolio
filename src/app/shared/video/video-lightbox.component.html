@@ -1,0 +1,53 @@
+<div
+  *ngIf="state as s"
+  class="lb"
+  role="dialog"
+  aria-modal="true"
+  [attr.aria-label]="s.projectTitle + ' videos'"
+  (click)="close()"
+>
+  <div class="lb-panel" (click)="$event.stopPropagation()">
+    <header class="lb-head">
+      <div class="lb-titles">
+        <span class="lb-project">{{ s.projectTitle }}</span>
+        <span class="lb-title"
+          >{{ currentTitle }}
+          <span class="lb-note" *ngIf="current?.note">{{ current?.note }}</span></span
+        >
+      </div>
+      <button #closeBtn type="button" class="lb-icon" (click)="close()" aria-label="Close video">
+        <i class="bx bx-x"></i>
+      </button>
+    </header>
+
+    <div class="lb-frame" [class.lb-frame--portrait]="current?.portrait">
+      <iframe
+        *ngIf="url"
+        [src]="url"
+        [title]="currentTitle"
+        allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+        allowfullscreen
+      ></iframe>
+    </div>
+
+    <footer class="lb-foot" *ngIf="s.videos.length > 1">
+      <button type="button" class="lb-icon" (click)="step(-1)" aria-label="Previous video">
+        <i class="bx bx-chevron-left"></i>
+      </button>
+      <div class="lb-dots">
+        <button
+          *ngFor="let v of s.videos; let i = index"
+          type="button"
+          class="lb-dot"
+          [class.active]="i === s.index"
+          (click)="goTo(i)"
+          [attr.aria-label]="'Play ' + (v.title || 'video ' + (i + 1))"
+          [attr.aria-current]="i === s.index ? 'true' : null"
+        ></button>
+      </div>
+      <button type="button" class="lb-icon" (click)="step(1)" aria-label="Next video">
+        <i class="bx bx-chevron-right"></i>
+      </button>
+    </footer>
+  </div>
+</div>

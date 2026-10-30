@@ -1,0 +1,93 @@
+<div
+  class="vg"
+  [class.vg--detail]="variant === 'detail'"
+  [class.vg--idle]="!started"
+  [class.vg--side]="layout.mode === 'side'"
+  [style.grid-template-columns]="layout.mode === 'side' ? layout.sideColumns : null"
+>
+  <ng-container *ngIf="layout.featured as featured">
+    <ng-container
+      *ngTemplateOutlet="tileTpl; context: { $implicit: featured, featured: true }"
+    ></ng-container>
+  </ng-container>
+
+  <div
+    class="vg-strip"
+    *ngIf="layout.strip as strip"
+    [style.--vg-pan-duration]="layout.stripDuration"
+  >
+    <div class="vg-strip-track">
+      <div
+        class="vg-strip-item"
+        *ngFor="let tile of strip; trackBy: trackByIndex"
+        [style.--vg-aspect]="tile.aspect"
+      >
+        <ng-container
+          *ngTemplateOutlet="tileTpl; context: { $implicit: tile, featured: false }"
+        ></ng-container>
+      </div>
+    </div>
+  </div>
+
+  <div class="vg-rows" *ngIf="layout.rows.length">
+    <div
+      *ngFor="let row of layout.rows"
+      class="vg-row"
+      [style.grid-template-columns]="row.columns"
+      [style.aspect-ratio]="row.aspect"
+      [style.max-width]="row.maxWidth"
+      [style.height]="row.height"
+    >
+      <ng-container *ngFor="let tile of row.tiles; trackBy: trackByIndex">
+        <ng-container
+          *ngTemplateOutlet="tileTpl; context: { $implicit: tile, featured: false }"
+        ></ng-container>
+      </ng-container>
+    </div>
+  </div>
+</div>
+
+<ng-template #tileTpl let-tile let-featured="featured">
+  <figure
+    class="vg-tile"
+    [class.vg-tile--featured]="featured"
+    [class.vg-tile--portrait]="tile.portrait"
+    [class.vg-tile--placeholder]="!tile.id"
+  >
+    <div class="vg-poster" [style.background-image]="tile.poster" aria-hidden="true"></div>
+
+    <iframe
+      #frame
+      *ngIf="tile.ambientUrl && started"
+      class="vg-frame"
+      [src]="tile.ambientUrl"
+      [title]="label(tile)"
+      tabindex="-1"
+      aria-hidden="true"
+      allow="autoplay; encrypted-media; picture-in-picture"
+      (load)="onFrameLoad(frame)"
+    ></iframe>
+
+    <button
+      *ngIf="tile.id"
+      type="button"
+      class="vg-hit"
+      (click)="open(tile)"
+      [attr.aria-label]="'Watch ' + label(tile) + ' with sound'"
+    >
+      <span class="vg-play"><i class="bx bx-play"></i></span>
+      <span class="vg-sound" *ngIf="featured"
+        ><i class="bx bx-volume-mute"></i> Click for sound</span
+      >
+    </button>
+
+    <span class="vg-note" *ngIf="tile.note">{{ tile.note }}</span>
+
+    <div *ngIf="!tile.id" class="vg-soon">
+      <i class="bx bx-video-recording"></i>
+      <span>Video coming soon</span>
+    </div>
+
+    <figcaption class="vg-caption" *ngIf="tile.title">{{ tile.title }}</figcaption>
+  </figure>
+</ng-template>
