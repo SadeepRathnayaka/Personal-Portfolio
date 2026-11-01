@@ -8,8 +8,7 @@ export const PORTFOLIO: PortfolioData = {
       'ROS 2 & Motion Planning Developer',
       'Software Engineer',
     ],
-    bio:
-      'Robotics engineer and software developer with First-Class Honours in Electronic and Telecommunication Engineering from the University of Moratuwa, Sri Lanka. I build robots end to end, from SolidWorks design and Gazebo simulation to ROS 2 control, motion planning and navigation on real hardware, including manipulator work on a UR10e during my research internship at SUTD. Industry experience as a software engineer gives me a strong foundation in writing clean, maintainable code.',
+    bio: 'Robotics engineer and software developer with First-Class Honours in Electronic and Telecommunication Engineering from the University of Moratuwa, Sri Lanka. I build robots end to end, from SolidWorks design and Gazebo simulation to ROS 2 control, motion planning and navigation on real hardware, including manipulator work on a UR10e during my research internship at SUTD. Industry experience as a software engineer gives me a strong foundation in writing clean, maintainable code.',
     researchInterests: [
       'Reinforcement Learning for Robotics',
       'Learning-Based Manipulation & Motion Planning',
@@ -84,7 +83,8 @@ export const PORTFOLIO: PortfolioData = {
     {
       date: '1 Jul 2025 – 30 Apr 2026',
       title: 'Software Engineer',
-      subtitle: '<strong>IFS R&D International Pvt Ltd.</strong> — Colombo, Sri Lanka',
+      subtitle:
+        '<strong>IFS R&D International Pvt Ltd.</strong> — Colombo, Sri Lanka',
       highlights: [
         {
           icon: 'bx bx-git-branch',
@@ -130,7 +130,8 @@ export const PORTFOLIO: PortfolioData = {
     {
       date: '27 Nov 2023 – 27 May 2024',
       title: 'Robotics Research Intern',
-      subtitle: '<strong>Singapore University of Technology and Design</strong> — Singapore',
+      subtitle:
+        '<strong>Singapore University of Technology and Design</strong> — Singapore',
       highlights: [
         {
           icon: 'bx bx-cog',
@@ -234,7 +235,15 @@ export const PORTFOLIO: PortfolioData = {
         { youtube: 'https://youtube.com/shorts/d1cygHEgMak' },
         { youtube: 'https://youtube.com/shorts/NJrXbc7O25g' },
       ],
-      tech: ['ROS 2', 'MoveIt 2', 'Gazebo', 'C++', 'Python', 'SolidWorks', 'Computer Vision'],
+      tech: [
+        'ROS 2',
+        'MoveIt 2',
+        'Gazebo',
+        'C++',
+        'Python',
+        'SolidWorks',
+        'Computer Vision',
+      ],
       links: [
         {
           label: 'View Code',
@@ -295,7 +304,7 @@ export const PORTFOLIO: PortfolioData = {
     {
       slug: 'turbobot',
       category: 'robotics',
-      title: 'Turbobot: Autonomous Mobile Robot',
+      title: 'Turbobot: Mobile Robot',
       summary:
         'Four-wheel differential-drive robot designed in SolidWorks and built from scratch. Autonomous navigation with ROS 2 and Nav2, tested in Gazebo, then a physical build with a Raspberry Pi, wheel encoders and an IMU for sensor fusion and state estimation.',
       image: 'assets/images/Turbobot.png',
@@ -304,8 +313,17 @@ export const PORTFOLIO: PortfolioData = {
         { youtube: 'https://youtu.be/PKGTT9TSPVY' },
         { youtube: 'https://youtu.be/gQOAwqNatAA' },
         { youtube: 'https://youtu.be/pZZ1d5MUNsE' },
+        { youtube: 'https://youtu.be/LtHjYS2N_sk' },
       ],
-      tech: ['ROS 2', 'Nav2', 'Gazebo', 'C++', 'Python', 'SolidWorks', 'Raspberry Pi'],
+      tech: [
+        'ROS 2',
+        'Nav2',
+        'Gazebo',
+        'C++',
+        'Python',
+        'SolidWorks',
+        'Raspberry Pi',
+      ],
       links: [
         {
           label: 'View Code',
@@ -352,6 +370,7 @@ export const PORTFOLIO: PortfolioData = {
         { youtube: 'https://youtu.be/WqC5JO2ScCo' },
         { youtube: 'https://youtu.be/xkA1Gb12svQ' },
         { youtube: 'https://youtube.com/shorts/GjdIf3EjvK4' },
+        { youtube: 'https://youtu.be/n7DOcKvzLSU' },
       ],
       tech: ['C++', 'Python', 'ROS 2', 'MoveIt 2', 'SolidWorks'],
       links: [
@@ -385,9 +404,7 @@ export const PORTFOLIO: PortfolioData = {
       summary:
         'Autonomous robot for the EN2553 Robot Design & Competition module, simulated in Webots. A C++ controller runs the whole course: PID line following on IR sensors, ultrasonic wall following, colour-based dotted-line selection, and a chess challenge where the robot finds a one-move checkmate as a rook, opens a chamber door and picks up boxes with a gripper designed in SolidWorks.',
       image: 'https://i.ytimg.com/vi/e3cvqNaZ6c4/hqdefault.jpg',
-      videos: [
-        { youtube: 'https://youtu.be/e3cvqNaZ6c4', note: '1.8×' },
-      ],
+      videos: [{ youtube: 'https://youtu.be/e3cvqNaZ6c4', note: '1.8×' }],
       tech: ['Webots', 'C++', 'PID Control', 'SolidWorks'],
       links: [
         {
@@ -630,15 +647,27 @@ export const PORTFOLIO: PortfolioData = {
             },
             {
               title: 'Inventory Service',
-              items: ['CRUD operations', 'Paginated search', 'Brand & category management'],
+              items: [
+                'CRUD operations',
+                'Paginated search',
+                'Brand & category management',
+              ],
             },
             {
               title: 'API Gateway',
-              items: ['Single entry point', 'Request routing', 'JWT validation'],
+              items: [
+                'Single entry point',
+                'Request routing',
+                'JWT validation',
+              ],
             },
             {
               title: 'Discovery Service',
-              items: ['Eureka Server', 'Service registration', 'Load balancing'],
+              items: [
+                'Eureka Server',
+                'Service registration',
+                'Load balancing',
+              ],
             },
           ],
         },
@@ -715,7 +744,11 @@ export const PORTFOLIO: PortfolioData = {
         { name: 'Gazebo', icon: 'bx bx-cube-alt', iconType: 'boxicon' },
         { name: 'RViz', icon: 'bx bx-show', iconType: 'boxicon' },
         { name: 'Webots', icon: 'bx bx-world', iconType: 'boxicon' },
-        { name: 'SolidWorks', icon: 'bx bx-shape-polygon', iconType: 'boxicon' },
+        {
+          name: 'SolidWorks',
+          icon: 'bx bx-shape-polygon',
+          iconType: 'boxicon',
+        },
         { name: 'URDF', icon: 'bx bx-sitemap', iconType: 'boxicon' },
       ],
     },
@@ -723,8 +756,16 @@ export const PORTFOLIO: PortfolioData = {
       name: 'Robotics Foundations',
       skills: [
         { name: 'Kinematics', icon: 'bx bx-math', iconType: 'boxicon' },
-        { name: 'Motion Planning', icon: 'bx bx-git-commit', iconType: 'boxicon' },
-        { name: 'EKF / Sensor Fusion', icon: 'bx bx-line-chart', iconType: 'boxicon' },
+        {
+          name: 'Motion Planning',
+          icon: 'bx bx-git-commit',
+          iconType: 'boxicon',
+        },
+        {
+          name: 'EKF / Sensor Fusion',
+          icon: 'bx bx-line-chart',
+          iconType: 'boxicon',
+        },
         { name: 'SLAM', icon: 'bx bx-map-alt', iconType: 'boxicon' },
         { name: 'Machine Vision', icon: 'bx bx-camera', iconType: 'boxicon' },
         { name: 'Deep Learning', icon: 'bx bx-brain', iconType: 'boxicon' },
@@ -743,9 +784,17 @@ export const PORTFOLIO: PortfolioData = {
     {
       name: 'Backend & Frontend',
       skills: [
-        { name: 'Spring Boot', icon: 'bx bxl-spring-boot', iconType: 'boxicon' },
+        {
+          name: 'Spring Boot',
+          icon: 'bx bxl-spring-boot',
+          iconType: 'boxicon',
+        },
         { name: 'REST APIs', icon: 'bx bx-git-branch', iconType: 'boxicon' },
-        { name: 'Microservices', icon: 'bx bx-network-chart', iconType: 'boxicon' },
+        {
+          name: 'Microservices',
+          icon: 'bx bx-network-chart',
+          iconType: 'boxicon',
+        },
         { name: 'Kafka', icon: 'bx bx-git-merge', iconType: 'boxicon' },
         { name: 'gRPC', icon: 'bx bx-transfer-alt', iconType: 'boxicon' },
         { name: 'Angular', icon: 'bx bxl-angular', iconType: 'boxicon' },
@@ -757,7 +806,11 @@ export const PORTFOLIO: PortfolioData = {
         { name: 'SQL', icon: 'bx bx-data', iconType: 'boxicon' },
         { name: 'MySQL', icon: 'custom-mysql', iconType: 'custom' },
         { name: 'Oracle', icon: 'bx bxs-data', iconType: 'boxicon' },
-        { name: 'PostgreSQL', icon: 'devicon-postgresql-plain', iconType: 'devicon' },
+        {
+          name: 'PostgreSQL',
+          icon: 'devicon-postgresql-plain',
+          iconType: 'devicon',
+        },
       ],
     },
     {
@@ -786,7 +839,8 @@ export const PORTFOLIO: PortfolioData = {
       title: 'Champions',
       event: 'Robot Design Competition 2023 (Virtual)',
       year: '2023',
-      description: 'Robot design and programming in a Webots simulation, University of Moratuwa.',
+      description:
+        'Robot design and programming in a Webots simulation, University of Moratuwa.',
       icon: 'bx bx-medal',
     },
     {
