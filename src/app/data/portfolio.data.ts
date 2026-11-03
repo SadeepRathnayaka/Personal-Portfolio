@@ -2,7 +2,7 @@ import { PortfolioData } from './portfolio.models';
 
 export const PORTFOLIO: PortfolioData = {
   profile: {
-    name: 'Sadeep Rathnayaka',
+    name: 'Sadeep Madhushan',
     titles: [
       'Robotics Engineer',
       'ROS 2 & Motion Planning Developer',

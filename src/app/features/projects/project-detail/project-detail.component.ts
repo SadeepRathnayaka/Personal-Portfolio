@@ -26,7 +26,7 @@ export class ProjectDetailComponent implements OnInit {
     const slug = this.route.snapshot.paramMap.get('slug') ?? '';
     this.project = getProjectBySlug(slug);
     if (this.project) {
-      this.title.setTitle(`${this.project.title} | Sadeep Rathnayaka`);
+      this.title.setTitle(`${this.project.title} | Sadeep Madhushan`);
     }
   }
 
